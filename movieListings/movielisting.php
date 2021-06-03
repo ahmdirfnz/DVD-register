@@ -1,0 +1,59 @@
+<?php
+    include "../db_connect.php";
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+    <title>Movies Listing</title>
+</head>
+<body>
+<h1>Movies titles</h1>
+<table id="movies">
+  <tr>
+    <th>ASIN</th>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Actors</th>
+  </tr>
+<?php
+
+$result = $connection->query("SELECT 
+                                dvdtitles.asin,
+                                dvdtitles.title,
+                                dvdtitles.price,
+                                dvdactors.fname,
+                                dvdactors.lname
+                              FROM dvdtitles
+                              JOIN actormoviership
+                                ON dvdtitles.asin = actormoviership.asin
+                              JOIN dvdactors
+                                ON dvdactors.actorID = actormoviership.actorID");
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_array()) {
+    echo "<tr>";
+    echo "<td>";
+    echo $row["asin"];
+    echo "</td>";
+    echo "<td>";
+    echo $row["title"];
+    echo "</td>";
+    echo "<td>";
+    echo $row["price"];
+    echo "</td>";
+    echo "<td>";
+    echo $row["fname"] . " " . $row["lname"];
+    echo "</td>";
+    echo "</tr>\n";
+  }
+}
+
+$connection->close();
+
+?>
+  
+</table>
+
+</body>
+</html>
