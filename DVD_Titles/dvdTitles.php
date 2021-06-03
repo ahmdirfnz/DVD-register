@@ -10,7 +10,7 @@ include "../db_connect.php"
 </head>
 
 <body>
-  <form action="insert.php" method="POST">
+  <form action="./insert.php" method="POST">
     <div class="container">
       <h1>Register Movie Titles</h1>
       <p>Please fill in this form to register movies.</p>

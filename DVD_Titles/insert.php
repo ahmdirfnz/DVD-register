@@ -6,7 +6,7 @@ $title = $_POST['title'];
 $price = $_POST['price'];
 
 $sql = "INSERT INTO dvdtitles(asin, title, price) " . 
-        "VALUES ('$asin', '$title', '$price')";
+        "VALUES ('$asin', '$title', $price)";
 
 $query = $connection->query($sql) or die ("Problem in storing the new student"); 
 
