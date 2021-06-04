@@ -10,7 +10,7 @@ include "../db_connect.php"
 </head>
 
 <body>
-  <form action="./insert.php" method="POST">
+  <form action="./upload.php" method="POST">
     <div class="container">
       <h1>Register Movie Titles</h1>
       <p>Please fill in this form to register movies.</p>
@@ -24,6 +24,13 @@ include "../db_connect.php"
 
       <label for="price"><b>Price</b></label>
       <input type="text" placeholder="Enter Price" name="price" required>
+
+      <form action="./upload.php" method="post" enctype="multipart/form-data">
+        <label>Select Image File:</label>
+        <input type="file" name="image">
+        <input type="submit" name="submit" value="Upload">
+      </form>
+
       <hr>
       <button type="submit" class="registerbtn">Register</button>
     </div>
@@ -34,6 +41,7 @@ include "../db_connect.php"
       <th>ASIN</th>
       <th>Title</th>
       <th>Price</th>
+      <th>Image</th>
       <th>Delete</th>
     </tr>
 
@@ -50,6 +58,9 @@ include "../db_connect.php"
         echo "</td>";
         echo "<td>";
         echo $row["price"];
+        echo "</td>";
+        echo "<td>";
+        echo base64_encode($row['image']);
         echo "</td>";
         echo "<td>";
         echo "<a href=\"delete.php?asin=" . $row['asin'] . "\"" .">Delete</a>";
