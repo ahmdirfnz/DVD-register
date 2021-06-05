@@ -16,6 +16,7 @@
     <th>Title</th>
     <th>Price</th>
     <th>Actors</th>
+    <th>Poster</th>
   </tr>
 <?php
 
@@ -23,12 +24,13 @@ $result = $connection->query("SELECT
                                 dvdtitles.asin,
                                 dvdtitles.title,
                                 dvdtitles.price,
+                                dvdtitles.image,
                                 dvdactors.fname,
                                 dvdactors.lname
                               FROM dvdtitles
                               JOIN actormoviership
                                 ON dvdtitles.asin = actormoviership.asin
-                              JOIN dvdactors
+                                JOIN dvdactors
                                 ON dvdactors.actorID = actormoviership.actorID");
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_array()) {
@@ -44,6 +46,9 @@ if ($result->num_rows > 0) {
     echo "</td>";
     echo "<td>";
     echo $row["fname"] . " " . $row["lname"];
+    echo "</td>";
+    echo "<td>";
+    echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" width="170px" height="200px"/>';
     echo "</td>";
     echo "</tr>\n";
   }

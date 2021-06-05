@@ -10,7 +10,7 @@ include "../db_connect.php"
 </head>
 
 <body>
-  <form action="./upload.php" method="POST">
+  <form action="./upload.php" method="POST" enctype="multipart/form-data">
     <div class="container">
       <h1>Register Movie Titles</h1>
       <p>Please fill in this form to register movies.</p>
@@ -25,14 +25,11 @@ include "../db_connect.php"
       <label for="price"><b>Price</b></label>
       <input type="text" placeholder="Enter Price" name="price" required>
 
-      <form action="./upload.php" method="post" enctype="multipart/form-data">
-        <label>Select Image File:</label>
+        <label for="title"><b>Select Image File:</b></label>
         <input type="file" name="image">
-        <input type="submit" name="submit" value="Upload">
-      </form>
 
       <hr>
-      <button type="submit" class="registerbtn">Register</button>
+      <button type="submit" class="registerbtn" name="submit" value="Upload">Register</button>
     </div>
   </form>
 
@@ -60,15 +57,17 @@ include "../db_connect.php"
         echo $row["price"];
         echo "</td>";
         echo "<td>";
-        echo base64_encode($row['image']);
+        echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" width="170px" height="200px"/>';
         echo "</td>";
         echo "<td>";
-        echo "<a href=\"delete.php?asin=" . $row['asin'] . "\"" .">Delete</a>";
+        echo "<a href=\"delete.php?asin=" . $row['asin'] . "\"" . ">Delete</a>";
         echo "</td></tr>\n";
       }
     }
     $connection->close();
     ?>
   </table>
+  <!-- <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" width="40%" height="40%" /> -->
 </body>
+
 </html>

@@ -16,21 +16,19 @@ if(isset($_POST["submit"])){
         if(in_array($fileType, $allowTypes)){ 
             $image = $_FILES['image']['tmp_name']; 
             $imgContent = addslashes(file_get_contents($image)); 
+         
+            // Insert image content into database 
+            // $sql = $connection->query("INSERT into dvdtitles(image) VALUES ('$imgContent')"); 
 
             $asin = $_POST['asin'];
             $title = $_POST['title'];
             $price = $_POST['price'];
 
-            $sql = "INSERT INTO dvdtitles (asin, title, price, image) " . 
-                    "VALUES ('$asin', '$title', $price, '$imgContent')";
+            $sql = "INSERT INTO dvdtitles(asin, title, price, image) " . 
+            "VALUES ('$asin', '$title', $price, '$imgContent')";
 
-            $query = $connection->query($sql) or die ("Problem in storing the new title"); 
-         
-            // Insert image content into database 
-            ?>
-            <script language="JavaScript">document.location="dvdTitles.php"</script>
+            $insert = $connection->query($sql) or die ("Problem in storing the new student"); 
              
-             <?php
             if($insert){ 
                 $status = 'success'; 
                 $statusMsg = "File uploaded successfully."; 
@@ -40,11 +38,13 @@ if(isset($_POST["submit"])){
         }else{ 
             $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
         } 
-    } else { 
+    }else{ 
         $statusMsg = 'Please select an image file to upload.'; 
     } 
 } 
  
 // Display status message 
 echo $statusMsg; 
+
+header( "refresh:1;url=dvdTitles.php" );
 ?>

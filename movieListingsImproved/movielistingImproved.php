@@ -16,6 +16,7 @@
     <th>Title</th>
     <th>Price</th>
     <th>Actors</th>
+    <th>Poster</th>
   </tr>
 <?php
 
@@ -23,6 +24,7 @@ $result = $connection->query("SELECT
                                 dvdtitles.asin,
                                 dvdtitles.title,
                                 dvdtitles.price,
+                                dvdtitles.image,
                                 GROUP_CONCAT(CONCAT_WS(' ',fname , lname) SEPARATOR ' , ')
                               FROM dvdtitles
                               JOIN actormoviership
@@ -44,6 +46,9 @@ if ($result->num_rows > 0) {
     echo "</td>";
     echo "<td>";
     echo $row["GROUP_CONCAT(CONCAT_WS(' ',fname , lname) SEPARATOR ' , ')"];
+    echo "</td>";
+    echo "<td>";
+    echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" width="170px" height="200px"/>';
     echo "</td>";
     echo "</tr>\n";
   }
