@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 include "../db_connect.php";
 
 $asin = $_POST['asin'];
@@ -16,4 +16,4 @@ if($query)
 <script language="JavaScript">document.location="dvdTitles.php"</script>
 <?php
 }
-?> -->
+?>
