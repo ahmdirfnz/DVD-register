@@ -59,6 +59,5 @@ $connection->close();
 ?>
   
 </table>
-
 </body>
 </html>

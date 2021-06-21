@@ -31,7 +31,7 @@ include "../db_connect.php"
       <th>ACTOR ID</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>Delete</th>
+      <th>Delete/Insert</th>
     </tr>
 
     <?php
@@ -51,6 +51,7 @@ include "../db_connect.php"
         echo "</td>";
         echo "<td>";
         echo "<a href=\"delete.php?actorID=" . $row['actorID'] . "\"" .">Delete</a>";
+        echo "<a href=\"edit.php?actorID=" . $row['actorID'] . "\"" .">/Edit</a>";
         echo "</td></tr>\n";
       }
     }

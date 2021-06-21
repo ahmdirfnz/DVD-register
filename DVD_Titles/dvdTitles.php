@@ -25,8 +25,8 @@ include "../db_connect.php"
       <label for="price"><b>Price</b></label>
       <input type="text" placeholder="Enter Price" name="price" required>
 
-        <label for="title"><b>Select Image File:</b></label>
-        <input type="file" name="image">
+      <label for="title"><b>Select Image File:</b></label>
+      <input type="file" name="image">
 
       <hr>
       <button type="submit" class="registerbtn" name="submit" value="Upload">Register</button>
@@ -39,7 +39,7 @@ include "../db_connect.php"
       <th>Title</th>
       <th>Price</th>
       <th>Image</th>
-      <th>Delete</th>
+      <th>Delete/Insert</th>
     </tr>
 
     <?php
@@ -61,6 +61,7 @@ include "../db_connect.php"
         echo "</td>";
         echo "<td>";
         echo "<a href=\"delete.php?asin=" . $row['asin'] . "\"" . ">Delete</a>";
+        echo "<a href=\"edit.php?asin=" . $row['asin'] . "\"" . ">/Edit</a>";
         echo "</td></tr>\n";
       }
     }

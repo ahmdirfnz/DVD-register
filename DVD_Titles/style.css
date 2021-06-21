@@ -64,7 +64,8 @@ table {
   }
 
   th {
-    background-color: green;
+    background-color: rgb(3, 182, 84);
+    color: rgb(255, 255, 255);
   }
   
   tr:nth-child(even) {
