@@ -5,13 +5,14 @@
 ![image1](./display_images/1.png)
 
 ### Actor Register Page
-![image1](./display_images/2.png)
+![image2](./display_images/2.png)
 
 ### Asin And Actor Register Page
-![image1](./display_images/3.png)
+![image3](./display_images/3.png)
 
 ### Movies Listing Page
-![image1](./display_images/5.png)
+![image4](./display_images/4.png)
+![image5](./display_images/5.png)
 
 ### Movies Listing Improved Page
-![image1](./display_images/6.png)
+![image6](./display_images/6.png)
