@@ -29,9 +29,9 @@ $result = $connection->query("SELECT
                                 dvdactors.lname
                               FROM dvdtitles
                               JOIN actormoviership
-                                ON dvdtitles.asin = actormoviership.asin
-                                JOIN dvdactors
-                                ON dvdactors.actorID = actormoviership.actorID");
+                              ON dvdtitles.asin = actormoviership.asin
+                              JOIN dvdactors
+                              ON dvdactors.actorID = actormoviership.actorID");
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_array()) {
     echo "<tr>";

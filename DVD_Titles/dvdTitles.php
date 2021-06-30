@@ -39,7 +39,7 @@ include "../db_connect.php"
       <th>Title</th>
       <th>Price</th>
       <th>Image</th>
-      <th>Delete/Insert</th>
+      <th>Delete/Edit</th>
     </tr>
 
     <?php

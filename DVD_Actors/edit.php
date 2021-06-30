@@ -8,14 +8,13 @@ if ($row = $query->fetch_array())
 	$actorID = $row['actorID'];
 	$fname = $row['fname'];
     $lname = $row['lname'];
-    // $image = $row['title'];
-
 }
 ?>
 
 <html>
 <body>
-<h1>Update Database</h1>
+<center>
+<h1>Edit Form</h1>
 <form method="post"
 action="update.php?asin=<?php echo $actorID ?>">
 <br>
@@ -39,9 +38,10 @@ value="<?php echo $lname?>" size='30'>&nbsp;</td>
 </tr>
 <tr>
 <td></td><td></td>
-<td><input type="submit" name="submit" value="Update"/></td>
+<td><input type="submit" name="submit" value="Submit"/></td>
 </tr>
 </table>
-<form>
+</form>
+<center>
 </body>
 </html>

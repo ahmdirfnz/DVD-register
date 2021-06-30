@@ -15,7 +15,8 @@ if ($row = $query->fetch_array())
 
 <html>
 <body>
-<h1>Update Database</h1>
+<center>
+<h1>Edit Form</h1>
 <form method="post"
 action="update.php?asin=<?php echo $asin ?>" enctype="multipart/form-data">
 <br>
@@ -48,6 +49,7 @@ value="<?php echo $price?>" size='30'>&nbsp;</td>
 <td><input type="submit" name="submit" value="Submit"/></td>
 </tr>
 </table>
-<form>
+</form>
+<center>
 </body>
 </html>

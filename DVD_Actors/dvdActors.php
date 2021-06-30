@@ -31,7 +31,7 @@ include "../db_connect.php"
       <th>ACTOR ID</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>Delete/Insert</th>
+      <th>Delete/Edit</th>
     </tr>
 
     <?php

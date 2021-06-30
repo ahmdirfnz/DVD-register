@@ -30,9 +30,8 @@ include "../db_connect.php"
     <tr>
       <th>ASIN</th>
       <th>ACTOR ID</th>
-      <th>Delete/Insert</th>
+      <th>Delete</th>
     </tr>
-
     <?php
 
     $result = $connection->query("SELECT * FROM actormoviership ORDER BY asin");
@@ -47,7 +46,6 @@ include "../db_connect.php"
         echo "</td>";
         echo "<td>";
         echo "<a href=\"delete.php?asin=" . $row['asin'] . "\"" .">Delete</a>";
-        echo "<a href=\"edit.php?asin=" . $row['asin'] . "\"" .">Edit</a>";
         echo "</td></tr>\n";
       }
     }
